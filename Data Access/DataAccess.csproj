@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IBlockDal.cs" />
     <Compile Include="Abstract\ILikeDal.cs" />
     <Compile Include="Abstract\INotificationDal.cs" />
     <Compile Include="Abstract\IPostDal.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\BlockDal.cs" />
     <Compile Include="EntityFramework\EfLikeDal.cs" />
     <Compile Include="EntityFramework\EfNotificationDal.cs" />
     <Compile Include="EntityFramework\EfPostDal.cs" />
