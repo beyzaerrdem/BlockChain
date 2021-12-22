@@ -62,10 +62,25 @@
     <Compile Include="EntityFramework\EfNotificationDal.cs" />
     <Compile Include="EntityFramework\EfPostDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
+    <Compile Include="Migrations\202112221236113_add_block.cs" />
+    <Compile Include="Migrations\202112221236113_add_block.designer.cs">
+      <DependentUpon>202112221236113_add_block.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112221244490_add_transaction.cs" />
+    <Compile Include="Migrations\202112221244490_add_transaction.designer.cs">
+      <DependentUpon>202112221244490_add_transaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112221236113_add_block.resx">
+      <DependentUpon>202112221236113_add_block.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112221244490_add_transaction.resx">
+      <DependentUpon>202112221244490_add_transaction.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{f9197649-1bee-4c6a-9468-651804c6b8df}</Project>
