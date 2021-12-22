@@ -10,7 +10,7 @@ namespace Business.Abstract
     public interface INotificationService
     {
         List<Notification> GetAll();
-        Like GetById(int id);
+        Notification GetById(int id);
         void Add(Notification notification);
         void Update(Notification notification);
         void Delete(Notification notification);
