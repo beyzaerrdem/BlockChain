@@ -54,6 +54,10 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfLikeDal.cs" />
+    <Compile Include="EntityFramework\EfNotificationDal.cs" />
+    <Compile Include="EntityFramework\EfPostDal.cs" />
+    <Compile Include="EntityFramework\EfUserDal.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
