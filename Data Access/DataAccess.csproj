@@ -56,6 +56,7 @@
     <Compile Include="Abstract\INotificationDal.cs" />
     <Compile Include="Abstract\IPostDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITransactionDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="EntityFramework\EfNotificationDal.cs" />
     <Compile Include="EntityFramework\EfPostDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
+    <Compile Include="EntityFramework\TransactionDal.cs" />
     <Compile Include="Migrations\202112221236113_add_block.cs" />
     <Compile Include="Migrations\202112221236113_add_block.designer.cs">
       <DependentUpon>202112221236113_add_block.cs</DependentUpon>
