@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Block.cs" />
     <Compile Include="Concrete\Like.cs" />
     <Compile Include="Concrete\Notification.cs" />
     <Compile Include="Concrete\Post.cs" />

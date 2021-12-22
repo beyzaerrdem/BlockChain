@@ -14,5 +14,6 @@ namespace Data_Access.Concrete
         public DbSet<Like> Likes { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Block> Blocks { get; set; }
     }
 }
