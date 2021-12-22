@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IBlockService.cs" />
     <Compile Include="Abstract\ILikeService.cs" />
     <Compile Include="Abstract\INotificationService.cs" />
     <Compile Include="Abstract\IPostService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Concrete\BlockManager.cs" />
     <Compile Include="Concrete\LikeManager.cs" />
     <Compile Include="Concrete\NotificationManager.cs" />
     <Compile Include="Concrete\PostManager.cs" />
