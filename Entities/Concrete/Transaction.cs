@@ -22,6 +22,6 @@ namespace Entities.Concrete
         public string Signature { get; set; }
 
         [Column(TypeName = "bigint")]
-        public int Timestamp { get; set; }
+        public long Timestamp { get; set; }
     }
 }

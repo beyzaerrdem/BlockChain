@@ -14,13 +14,13 @@ namespace Entities.Concrete
         public int BlockId { get; set; }
 
         public string PreviousHash { get; set; }
-
+        public IEnumerable<Transaction> Transactions { get; set; }
         public string Hash { get; set; }
 
         [Column(TypeName = "bigint")]
-        public int Nonce { get; set; }
+        public long Nonce { get; set; }
 
         [Column(TypeName = "bigint")]
-        public int Timestamp { get; set; }
+        public long Timestamp { get; set; }
     }
 }
