@@ -10,6 +10,7 @@ namespace Business.Abstract
     public interface IRandomWordService
     {
         List<RandomWord> GetAll();
+        List<RandomWord> GetRandomWords(int count);
         RandomWord GetById(int id);
         void Add(RandomWord randomWord);
         void Update(RandomWord randomWord);

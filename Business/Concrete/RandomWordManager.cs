@@ -28,6 +28,11 @@ namespace Business.Concrete
             _randomWordDal.Delete(randomWord);
         }
 
+        public List<RandomWord> GetRandomWords(int count)
+        {
+            return _randomWordDal.GetRandomWords(count);
+        }
+
         public List<RandomWord> GetAll()
         {
             return _randomWordDal.GetAll();
