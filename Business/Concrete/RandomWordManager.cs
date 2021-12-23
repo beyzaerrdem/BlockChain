@@ -30,17 +30,17 @@ namespace Business.Concrete
 
         public List<RandomWord> GetAll()
         {
-            throw new NotImplementedException();
+            return _randomWordDal.GetAll();
         }
 
         public RandomWord GetById(int id)
         {
-            throw new NotImplementedException();
+            return _randomWordDal.Get(x => x.Id == id);
         }
 
         public void Update(RandomWord randomWord)
         {
-            throw new NotImplementedException();
+            _randomWordDal.Update(randomWord);
         }
     }
 }

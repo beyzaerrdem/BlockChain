@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Data_Access.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,32 @@ namespace Business.Concrete
 {
     public class RegisteredUserManager : IRegisteredUserService
     {
+        IRegisteredUserDal _registeredUserDal;
+
+
         public void Add(RegisteredUser registeredUser)
         {
-            throw new NotImplementedException();
+            _registeredUserDal.Add(registeredUser);
         }
 
         public void Delete(RegisteredUser registeredUser)
         {
-            throw new NotImplementedException();
+            _registeredUserDal.Delete(registeredUser);
         }
 
         public List<RegisteredUser> GetAll()
         {
-            throw new NotImplementedException();
+            return _registeredUserDal.GetAll();
         }
 
         public RegisteredUser GetById(int id)
         {
-            throw new NotImplementedException();
+            return _registeredUserDal.Get(x => x.Id == id);
         }
 
         public void Update(RegisteredUser registeredUser)
         {
-            throw new NotImplementedException();
+            _registeredUserDal.Update(registeredUser);
         }
     }
 }
