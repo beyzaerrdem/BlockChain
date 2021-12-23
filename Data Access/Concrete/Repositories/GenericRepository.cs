@@ -20,27 +20,35 @@ namespace Data_Access.Concrete.Repositories
 
         public void Add(T type)
         {
-            throw new NotImplementedException();
+            var addedEntity = context.Entry(type);
+            addedEntity.State = EntityState.Added;
+            context.SaveChanges();
         }
 
         public void Delete(T type)
         {
-            throw new NotImplementedException();
+            var deletedEntity = context.Entry(type);
+            deletedEntity.State = EntityState.Deleted;
+            context.SaveChanges();
         }
 
         public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            return _object.SingleOrDefault(filter);
         }
 
         public List<T> GetAll(System.Linq.Expressions.Expression<Func<T, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return filter == null
+                   ? _object.ToList()
+                   : _object.Where(filter).ToList();
         }
 
         public void Update(T type)
         {
-            throw new NotImplementedException();
+            var updatedEntity = context.Entry(type);
+            updatedEntity.State = EntityState.Modified;
+            context.SaveChanges();
         }
     }
 }
