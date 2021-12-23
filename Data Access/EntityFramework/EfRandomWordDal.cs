@@ -11,5 +11,9 @@ namespace Data_Access.EntityFramework
 {
     public class EfRandomWordDal : GenericRepository<RandomWord>, IRandomWordDal
     {
+        public List<RandomWord> GetRandomWords(int count)
+        {
+            return context.RandomWords.OrderBy(x => Guid.NewGuid()).Take(count).ToList();
+        }
     }
 }
