@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Business.Utilities.Helpers;
 using Entities.Concrete;
 using Newtonsoft.Json;
 
@@ -33,18 +35,20 @@ namespace BlockChain.Controllers
         {
             //var t = new Transaction();
 
-            using (var client = new HttpClient())
-            {
-                var uri = new Uri("http://localhost:8081/api/post/addpost");
+            //using (var client = new HttpClient())
+            //{
+            //    var uri = new Uri("http://localhost:8081/api/post/addpost");
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, uri);
-                requestMessage.Content = new StringContent(JsonConvert.SerializeObject(new{postOwner= "2421ebb2aa51fad4a51276a37bf0824f50cd4864c733567b968926f2f617d652",post="merhaba" }), Encoding.UTF8, "application/json");
-                var response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
-                var t=response.Content.ReadAsAsync<Transaction>().Result;
-                return Task.FromResult<ActionResult>(Json(t,JsonRequestBehavior.AllowGet));
-            }
+            //    var requestMessage = new HttpRequestMessage(HttpMethod.Post, uri);
+            //    requestMessage.Content = new StringContent(JsonConvert.SerializeObject(new{postOwner= "2421ebb2aa51fad4a51276a37bf0824f50cd4864c733567b968926f2f617d652",post="merhaba" }), Encoding.UTF8, "application/json");
+            //    var response = client.SendAsync(requestMessage).GetAwaiter().GetResult();
+            //    var t=response.Content.ReadAsAsync<Transaction>().Result;
+            //    return Task.FromResult<ActionResult>(Json(t,JsonRequestBehavior.AllowGet));
+            //}
+            var t = APIHelper.PostMethod<Transaction>(new { postOwner = "sadadasdadas", post = "post" }, "http://localhost:8081/api/post/addpost");
 
-            
+            //var t=APIHelper.PostMethod(new{postOwner= "2421ebb2aa51fad4a51276a37bf0824f50cd4864c733567b968926f2f617d652",post="merhaba" }, "http://localhost:8081/api/post/addpost",typeof(Transaction)).Result;
+            return Task.FromResult<ActionResult>(Json(t, JsonRequestBehavior.AllowGet));
         }
     }
 }
