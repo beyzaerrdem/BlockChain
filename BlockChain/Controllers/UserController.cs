@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace BlockChain.Controllers
 {
@@ -59,9 +60,22 @@ namespace BlockChain.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login()
+        public ActionResult Login(string privateKey)
         {
-            return View();
+            var publicKey = "x";
+            var user = _userService.GetUser(publicKey);
+
+            if (user != null)
+            {
+                FormsAuthentication.SetAuthCookie(privateKey, false);
+                Session["privateKey"] = privateKey;
+                return Redirect(Request.Form["ReturnUrl"]);
+            }
+            else
+            {
+                return Redirect(Request.UrlReferrer.AbsoluteUri);
+            }
+
         }
 
     }

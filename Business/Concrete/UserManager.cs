@@ -19,29 +19,9 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        public void Add(User user)
+        public User GetUser(string publicKey)
         {
-            _userDal.Add(user);
-        }
-
-        public void Delete(User user)
-        {
-            _userDal.Delete(user);
-        }
-
-        public List<User> GetAll()
-        {
-            return _userDal.GetAll();
-        }
-
-        public User GetById(string id)
-        {
-            return _userDal.Get(u => u.PublicKey == id);
-        }
-
-        public void Update(User user)
-        {
-            _userDal.Update(user);
+            return _userDal.Get(x => x.PublicKey == publicKey);
         }
     }
 }
