@@ -37,8 +37,6 @@ namespace BlockChain
 
             process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             process.Start();
-            var t=MernisServiceAdapter.CheckIfRealPerson(new UserValidationDto()
-                { NationalatyId = 1, FirstName = "", LastName = "", BirthYear = 2001 });
         }
     }
 }
