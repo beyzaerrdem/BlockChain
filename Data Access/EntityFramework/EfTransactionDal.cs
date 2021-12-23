@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data_Access.EntityFramework
 {
-    public class BlockDal : GenericRepository<Block>, IBlockDal
+    public class EfTransactionDal : GenericRepository<Transaction>, ITransactionDal
     {
     }
 }

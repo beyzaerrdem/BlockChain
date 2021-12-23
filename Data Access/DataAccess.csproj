@@ -61,13 +61,13 @@
     <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
-    <Compile Include="EntityFramework\BlockDal.cs" />
+    <Compile Include="EntityFramework\EfBlockDal.cs" />
     <Compile Include="EntityFramework\EfLikeDal.cs" />
     <Compile Include="EntityFramework\EfNotificationDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
-    <Compile Include="EntityFramework\RandomWordDal.cs" />
-    <Compile Include="EntityFramework\RegisteredUserDal.cs" />
-    <Compile Include="EntityFramework\TransactionDal.cs" />
+    <Compile Include="EntityFramework\EfRandomWordDal.cs" />
+    <Compile Include="EntityFramework\EfRegisteredUserDal.cs" />
+    <Compile Include="EntityFramework\EfTransactionDal.cs" />
     <Compile Include="Migrations\202112221236113_add_block.cs" />
     <Compile Include="Migrations\202112221236113_add_block.designer.cs">
       <DependentUpon>202112221236113_add_block.cs</DependentUpon>

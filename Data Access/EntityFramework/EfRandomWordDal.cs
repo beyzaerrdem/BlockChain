@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data_Access.EntityFramework
 {
-    public class RegisteredUserDal : GenericRepository<RegisteredUser>,IRegisteredUserDal
+    public class EfRandomWordDal : GenericRepository<RandomWord>, IRandomWordDal
     {
     }
 }

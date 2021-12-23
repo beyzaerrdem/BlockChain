@@ -13,6 +13,10 @@ namespace Business.Concrete
     {
         IRegisteredUserDal _registeredUserDal;
 
+        public RegisteredUserManager(IRegisteredUserDal registeredUserDal)
+        {
+            _registeredUserDal = registeredUserDal;
+        }
 
         public void Add(RegisteredUser registeredUser)
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data_Access.EntityFramework
 {
-    public class TransactionDal : GenericRepository<Transaction>, ITransactionDal
+    public class EfRegisteredUserDal : GenericRepository<RegisteredUser>,IRegisteredUserDal
     {
     }
 }
