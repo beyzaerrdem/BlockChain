@@ -15,6 +15,11 @@ namespace Business.Utilities.Helpers
 
         }
 
+        public static byte[] Hash(object obj)
+        {
+
+            return null;
+        }
         //public static string CreateKey()
         //{
 
