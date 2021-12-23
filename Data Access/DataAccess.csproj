@@ -54,7 +54,6 @@
     <Compile Include="Abstract\IBlockDal.cs" />
     <Compile Include="Abstract\ILikeDal.cs" />
     <Compile Include="Abstract\INotificationDal.cs" />
-    <Compile Include="Abstract\IPostDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\ITransactionDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="EntityFramework\BlockDal.cs" />
     <Compile Include="EntityFramework\EfLikeDal.cs" />
     <Compile Include="EntityFramework\EfNotificationDal.cs" />
-    <Compile Include="EntityFramework\EfPostDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
     <Compile Include="EntityFramework\TransactionDal.cs" />
     <Compile Include="Migrations\202112221236113_add_block.cs" />
@@ -74,6 +72,14 @@
     <Compile Include="Migrations\202112221244490_add_transaction.designer.cs">
       <DependentUpon>202112221244490_add_transaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112231256293_mig_updated_posts.cs" />
+    <Compile Include="Migrations\202112231256293_mig_updated_posts.designer.cs">
+      <DependentUpon>202112231256293_mig_updated_posts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112231259582_mig_updated_tc_hash.cs" />
+    <Compile Include="Migrations\202112231259582_mig_updated_tc_hash.designer.cs">
+      <DependentUpon>202112231259582_mig_updated_tc_hash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +89,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112221244490_add_transaction.resx">
       <DependentUpon>202112221244490_add_transaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112231256293_mig_updated_posts.resx">
+      <DependentUpon>202112231256293_mig_updated_posts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112231259582_mig_updated_tc_hash.resx">
+      <DependentUpon>202112231259582_mig_updated_tc_hash.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

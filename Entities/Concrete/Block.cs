@@ -14,7 +14,7 @@ namespace Entities.Concrete
         public int BlockId { get; set; }
 
         public string PreviousHash { get; set; }
-        public virtual IEnumerable<Transaction> Transactions { get; set; }
+
         public string Hash { get; set; }
 
         [Column(TypeName = "bigint")]
@@ -22,5 +22,7 @@ namespace Entities.Concrete
 
         [Column(TypeName = "bigint")]
         public long Timestamp { get; set; }
+
+        public ICollection<Transaction> Transactions { get; set; }
     }
 }

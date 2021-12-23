@@ -45,7 +45,8 @@
     <Compile Include="Concrete\Block.cs" />
     <Compile Include="Concrete\Like.cs" />
     <Compile Include="Concrete\Notification.cs" />
-    <Compile Include="Concrete\Post.cs" />
+    <Compile Include="Concrete\RandomWord.cs" />
+    <Compile Include="Concrete\RegisteredUser.cs" />
     <Compile Include="Concrete\Transaction.cs" />
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

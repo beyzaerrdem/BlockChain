@@ -13,7 +13,14 @@ namespace Entities.Concrete
         [Key]
         public int TransactionId { get; set; }
 
+        [StringLength(500)]
+        [ForeignKey("PostOwner")]
+        public string PostOwnerId { get; set; }
+        public virtual User PostOwner { get; set; }
+
+        [ForeignKey("Block")]
         public int BlockId { get; set; }
+        public virtual Block Block { get; set; }
 
         public string Post { get; set; }
 
@@ -21,5 +28,7 @@ namespace Entities.Concrete
 
         [Column(TypeName = "bigint")]
         public long Timestamp { get; set; }
+
+        public ICollection<Like> Likes { get; set; }
     }
 }

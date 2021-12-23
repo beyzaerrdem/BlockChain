@@ -16,11 +16,10 @@ namespace Entities.Concrete
         [StringLength(50)]
         public string UserName { get; set; }
 
-        public byte[] PasswordHash { get; set; }
-
-        public byte[] PasswordSalt { get; set; }
-
         [StringLength(250)]
         public string ProfilPhoto { get; set; }
+
+        public ICollection<Notification> Notifications { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
     }
 }
