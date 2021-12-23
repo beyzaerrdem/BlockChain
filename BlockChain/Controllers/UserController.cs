@@ -40,7 +40,7 @@ namespace BlockChain.Controllers
 
             if (result)
             {
-                var hashedNumber = NodeJsAPIHelper.Hash(registerModel.NationalityId);
+                var hashedNumber = NodeJsAPIHelper.Hash(new {tc = registerModel.NationalityId });
                 var isUserExist = _registeredUserService.IsUserExist(hashedNumber);
 
                 if (!isUserExist)
