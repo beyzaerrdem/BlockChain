@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Business.Utilities.Helpers;
+using Entities.Concrete;
 
 namespace BlockChain
 {
@@ -29,8 +30,7 @@ namespace BlockChain
             process.StartInfo.Arguments = path;
             process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             process.Start();
-
-            var t = NodeJsAPIHelper.Hash(new { name = "salih" });
+            
         }
     }
 }

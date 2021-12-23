@@ -49,6 +49,7 @@
     <Compile Include="Concrete\RegisteredUser.cs" />
     <Compile Include="Concrete\Transaction.cs" />
     <Compile Include="Concrete\User.cs" />
+    <Compile Include="Dto\KeyDto.cs" />
     <Compile Include="Dto\UserValidationDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

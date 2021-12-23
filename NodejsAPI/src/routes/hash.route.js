@@ -3,6 +3,6 @@ import * as Hash from "../controllers/hash.controller.js"
 
 const router = express.Router();
 
-router.route("/createHash").get(Hash.createHash);
+router.route("/createHash").post(Hash.createHash);
 
 export default router;

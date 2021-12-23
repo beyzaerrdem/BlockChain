@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Entities.Concrete;
 using Newtonsoft.Json;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using Entities.Dto;
 
 namespace Business.Utilities.Helpers
 {
@@ -32,13 +33,13 @@ namespace Business.Utilities.Helpers
         public static byte[] Hash(object obj)
         {
 
-            var result = APIHelper.GetMethod<string>("http://localhost:8081/api/hash/createhash");
+            var result = APIHelper.PostMethod<string>(obj,"http://localhost:8081/api/hash/createhash");
             return GetStringToBytes(result);
         }
 
-        public static string GetPublicKey(List<RandomWord> randomWords)
+        public static KeyDto CreateKey(List<RandomWord> randomWords)
         {
-            throw new NotImplementedException();
+            return APIHelper.PostMethod<KeyDto>(randomWords, "http://localhost:8081/api/key/createkey");
         }
         //public static string CreateKey()
         //{

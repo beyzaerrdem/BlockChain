@@ -9,6 +9,6 @@ namespace Data_Access.Abstract
 {
     public interface IRandomWordDal : IRepository<RandomWord>
     {
-        List<RandomWord> GetRandomWords(int quantity)
+        List<RandomWord> GetRandomWords(int quantity);
     }
 }
