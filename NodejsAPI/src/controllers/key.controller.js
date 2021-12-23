@@ -1,15 +1,10 @@
-import EC from "elliptic";
-const ec = new EC.ec("secp256k1");
-import crypto from "crypto";
+import { createPrivateKeyHash, getPublicKeyHash } from "../services/key.service.js";
 
 const createKey = (_req, _res) => {
-  const privateKey = crypto
-    .createHash("sha256")
-    .update(JSON.stringify(_req.body))
-    .digest("hex");
+  const privateKey =  createPrivateKeyHash(_req.body)
 
-  const publicKey = ec.keyFromPrivate(privateKey).getPublic("hex");
-  _res.json({ privateKey: privateKey, publicKey: publicKey });
+  const publicKey = getPublicKeyHash(privateKey)
+  _res.json({ privateKey:privateKey, publicKey:publicKey  });
 };
 
 export { createKey };
