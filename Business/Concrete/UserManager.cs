@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Data_Access.Abstract;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,11 @@ namespace Business.Concrete
     public class UserManager : IUserService
     {
         IUserDal _userDal;
-
-        public UserManager(IUserDal userDal)
+        IUserCheckService _userCheckService;
+        public UserManager(IUserDal userDal, IUserCheckService userCheckService)
         {
             _userDal = userDal;
+            _userCheckService = userCheckService;
         }
 
         public void Add(User user)

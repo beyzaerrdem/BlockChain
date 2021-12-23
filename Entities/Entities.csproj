@@ -48,6 +48,7 @@
     <Compile Include="Concrete\Post.cs" />
     <Compile Include="Concrete\Transaction.cs" />
     <Compile Include="Concrete\User.cs" />
+    <Compile Include="Dto\UserValidationDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
