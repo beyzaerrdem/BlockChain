@@ -37,7 +37,8 @@ namespace BlockChain
 
             process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             process.Start();
-            var t = NodeJsAPIHelper.PrivateKeyToPublicKey("2b59c50d6c3b14de33f3a091e05666e790dc2c0da9b49f25baecdaa1dd16311b");
+            var t=MernisServiceAdapter.CheckIfRealPerson(new UserValidationDto()
+                { NationalatyId = 1, FirstName = "", LastName = "", BirthYear = 2001 });
         }
     }
 }

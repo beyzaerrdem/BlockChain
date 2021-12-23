@@ -32,7 +32,6 @@ namespace Business.Utilities.Helpers
 
         public static byte[] Hash(object obj)
         {
-
             var result = APIHelper.PostMethod<string>(obj,"http://localhost:8081/api/hash/createhash");
             return GetStringToBytes(result);
         }
