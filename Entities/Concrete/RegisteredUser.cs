@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Post
+    public class RegisteredUser
     {
         [Key]
-        public int PostId { get; set; }
+        public int Id { get; set; }
 
-        [StringLength(500)]
-        public string PublicKey { get; set; }
-
-        public string Content { get; set; }
+        public byte[] HashValue { get; set; }
     }
 }
