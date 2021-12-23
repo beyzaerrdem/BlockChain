@@ -13,10 +13,10 @@ namespace Business.Adapters
     {
         public static bool CheckIfRealPerson(UserValidationDto userValidationDto)
         {
-            mernis.KPSPublicSoapClient service = new mernis.KPSPublicSoapClient();
+            var service = new mernis.KPSPublicSoapClient();
             return service.TCKimlikNoDogrula(
                 userValidationDto.NationalatyId,
-                userValidationDto.FirstName,userValidationDto.LastName,userValidationDto.BirthYear);
+                userValidationDto.FirstName, userValidationDto.LastName, userValidationDto.BirthYear);
         }
     }
 }
