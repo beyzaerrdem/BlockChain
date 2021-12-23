@@ -1,31 +1,152 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = null;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index - Biz</title>
+    <link href="~/assets/css/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- sidebar starts -->
+    <div class="sidebar">
+        <i class="fab fa-twitter"></i>
+        <a href="#home" onclick="getHash()">
+            <div class="sidebarOption active">
+                <span class="material-icons"> home </span>
+                <h2>Home</h2>
+            </div>
+        </a>
+        <a href="#notifications" onclick="getHash()">
+            <div class="sidebarOption">
+
+                <div>
+                    <span class="material-icons"> notifications_none </span>
+                    <div class="notificationDot"></div>
+                </div>
+                <h2>Notifications</h2>
+            </div>
+        </a>
+        <a href="login.html">
+            <div class="sidebarOption">
+                <span class="material-icons"> logout </span>
+                <h2>Log out</h2>
+            </div>
+        </a>
+
+
+        <a href="#postPopup"><button class="sidebar__tweet" style="cursor:pointer;">Post</button></a>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <!-- sidebar ends -->
+    <!-- feed starts -->
+    <div class="feed">
+        <!-- home starts -->
+        <section id="homePage">
+
+            <div class="feed__header">
+                <h2>Home</h2>
+            </div>
+            <!-- tweetbox starts -->
+            <div class="tweetBox">
+                <form>
+                    <div class="tweetbox__input">
+                        <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                        <textarea id="sendTweet" placeholder="What's happening?" name="tweetMessage"></textarea>
+                    </div>
+                    <button class="tweetBox__tweetButton" style="cursor:pointer;">Post</button>
+                </form>
+            </div>
+            <!-- tweetbox ends -->
+            <!-- post starts -->
+            <div class="post">
+                <div class="post__avatar">
+                    <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                </div>
+
+                <div class="post__body">
+                    <div class="post__header">
+                        <div class="post__headerText">
+                            <h3>
+                                Somanath Goudar
+                            </h3>
+                        </div>
+                        <div class="post__headerDescription">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                    </div>
+                    <div class="post__footer">
+                        <span class="material-icons"> favorite_border </span>
+                    </div>
+                </div>
+            </div>
+            <!-- post ends -->
+        </section>
+        <!-- home ends -->
+        <!-- notification starts-->
+        <section id="notificationPage">
+            <div class="feed__header">
+                <h2>Notifications</h2>
+            </div>
+
+            <!-- post starts -->
+            <div class="post">
+                <div class="post__avatar">
+                    <img src="./images/icons8-bell-64.png" alt="" />
+                </div>
+
+                <div class="post__body">
+                    <div class="post__header">
+                        <div class="post__headerText">
+                            <h3>
+                                Username
+                            </h3>
+                        </div>
+                        <div class="post__headerDescription">
+                            <p>A new post from "username". Let's check it out!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- post ends -->
+        </section>
+        <!-- notification ends -->
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <!-- feed ends -->
+    <!-- popup starts -->
+    <div id="postPopup" class="overlay">
+        <div class="popup">
+            <a href="#home"><span class="whiteIcon">&times;</span></a>
+            <div class="popupContent">
+                <div class="tweetBox">
+                    <form>
+                        <div class="tweetbox__input" style="padding:0; margin-top:20px;">
+                            <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
+                            <textarea id="sendTweet" placeholder="What's happening?" name="tweetMessage"></textarea>
+                        </div>
+                        <button class="tweetBox__tweetButton" style="margin-top:20px;">Post</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+    <!-- popup ends -->
+    <script src="~/assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,46 @@
 ﻿@model BlockChain.Models.RegisterModel
+
 @{
     Layout = null;
 }
 
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup / Login - Biz</title>
+    <link href="~/assets/css/login.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content">
+        <div class="flex-div">
+            <div class="name-content">
+                <h1 class="logo">Biz</h1>
+                <p>Freely share what you want.</p>
+                <p>Complete confidentiality no judgement</p>
+            </div>
+            <div id="loginBlock">
+                <form id="signupForm" method="post" action="/user/register"> 
+                    <input name="NationalityId" type="text" placeholder="TC id number" required />
+                    <input name="FirstName" type="text" placeholder="Name" required />
+                    <input name="LastName" type="text" placeholder="Lastname" required />
+                    <input name="BirthYear" type="number" placeholder="Birth year" required />
+                    <input name="UserName" type="text" placeholder="Username" required />
+                    <button type="submit" class="loginBtn">Sign up</button>
+                    <a href="#login" onclick="getHash()">You already have an account? Login</a>
+                </form>
+                <form id="loginForm" method="post" action="/user/login">
+                    <input name="" type="text" placeholder="Private key" required />
+                    <button type="submit" class="loginBtn">Login</button>
+                    <a href="#signup" onclick="getHash()">You don't have an account yet? Signup</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/app.js"></script>
+</body>
+</html>

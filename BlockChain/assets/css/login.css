@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #2f3336;
+  --twitter-color: #8e44ad;
+  --twitter-background: #2f3336;
+  --primary-text-color: #fff;
+  --secondary-text-color: #d9d9d9;
+  --third-text-color: #6e767d;
+  --main-background: #000;
+  --popup-background: #000;
+  --softgray-text-color: #c2c2c2;
+  font-family: 'Roboto', sans-serif;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.flex-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.name-content {
+  margin-right: 7rem;
+}
+
+.name-content .logo {
+  font-size: 3.5rem;
+  color: var(--twitter-color);
+}
+
+.name-content p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  padding: 2rem;
+  width: 530px;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+form input {
+  outline: none;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  background:none;
+  border: none;
+  border-bottom: 2px solid var(--secondary-text-color);
+}
+
+form input:focus {
+  border-bottom: 2px solid var(--twitter-color);
+}
+
+form .loginBtn {
+  outline: none;
+  border: none;
+  background: var(--twitter-color);
+  padding: 0.8rem 1rem;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+form .loginBtn:hover {
+  background: #9b59b6;
+  cursor: pointer;
+}
+
+form a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 1rem;
+  padding-top: 0.8rem;
+  color: var(--twitter-color);
+}
+
+form hr {
+  background: #f7f7f7;
+  margin: 1rem;
+}
+
+form .create-account {
+  outline: none;
+  border: none;
+  background: #06b909;
+  padding: 0.8rem 1rem;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+  color: #fff;
+  width: 75%;
+  margin: 0 auto;
+}
+
+form .create-account:hover {
+  background: #03ad06;
+  cursor: pointer;
+}
+
+#loginForm{
+    display:flex;
+}
+
+#signupForm{
+    display:none;
+}
+
+input {
+    color: #d6d6d6;
+}

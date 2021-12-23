@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7e303ebc-e2a7-4127-b982-fa8c157da708" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="aaf63d7e-1abc-4176-851f-68e36317aeeb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="KPSPublic.wsdl" MetadataType="Wsdl" ID="7ad2b9c6-904d-43ce-8837-54c7bd9dad05" SourceId="1" SourceUrl="https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx?WSDL" />
+    <MetadataFile FileName="KPSPublic.wsdl" MetadataType="Wsdl" ID="83a987cf-d0b7-4faf-b3c0-8318cf9269fa" SourceId="1" SourceUrl="https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
