@@ -1,11 +1,11 @@
 import crypto from "crypto"
 export default class Transaction {
     /**
-     * @param {string} postOwner
+     * @param {string} postOwnerId
      * @param {string} post
      */
-    constructor(postOwner, post) {
-      this.postOwner = postOwner;
+    constructor(postOwnerId, post) {
+      this.postOwnerId = postOwnerId;
       this.post = post;
       this.timestamp = Date.now();
     }
@@ -18,12 +18,12 @@ export default class Transaction {
     calculateHash() {
       return crypto
         .createHash("sha256")
-        .update(this.postOwner + this.post + this.timestamp)
+        .update(this.postOwnerId + this.post + this.timestamp)
         .digest("hex");
     }
   
     signTransaction(signingKey) {
-      if (signingKey.getPublic("hex") !== this.postOwner) {
+      if (signingKey.getPublic("hex") !== this.postOwnerId) {
         throw new Error("Başkası adına post paylaşamazsınız");
       }
   
@@ -37,12 +37,12 @@ export default class Transaction {
      * @returns {boolean}
      */
     isValid() {
-      if (this.postOwner === null) return true;
+      if (this.postOwnerId === null) return true;
   
       if (!this.signature || this.signature.length === 0) {
         throw new Error("No signature in this transaction");
       }
-      const publicKey = ec.keyFromPublic(this.postOwner, "hex");
+      const publicKey = ec.keyFromPublic(this.postOwnerId, "hex");
       return publicKey.verify(this.calculateHash(), this.signature);
     }
   }
