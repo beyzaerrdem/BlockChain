@@ -22,8 +22,8 @@ namespace BlockChain
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             var process = new Process();
             process.StartInfo.FileName = "cmd.exe";
-            var path=Directory.GetParent(Server.MapPath("~")).Parent.FullName+ "/BlockChainNodejsApi/app.js";
-            process.StartInfo.Arguments = "/k node "+path;
+            var path=Directory.GetParent(Server.MapPath("~")).Parent.FullName+ "/BlockChainNodejsApi";
+            process.StartInfo.Arguments = "/k cd "+path+"&&npm i&&node app.js";
             process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             process.Start();
         }
