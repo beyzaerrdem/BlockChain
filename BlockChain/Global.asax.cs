@@ -28,12 +28,16 @@ namespace BlockChain
 
             var process = new Process();
             process.StartInfo.FileName = "node.exe";
-            var path = Directory.GetParent(Server.MapPath("~")).Parent.FullName + "/NodejsAPI/app.js";
-            process.StartInfo.Arguments = path;
+            var directoryInfo = Directory.GetParent(Server.MapPath("~"))?.Parent;
+            if (directoryInfo != null)
+            {
+                var path = directoryInfo?.FullName + "/NodejsAPI/app.js";
+                process.StartInfo.Arguments = path;
+            }
+
             process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             process.Start();
-            var t=MernisServiceAdapter.CheckIfRealPerson(new UserValidationDto()
-                { NationalatyId = 1, FirstName = "", LastName = "", BirthYear = 2001 });
+            var t = NodeJsAPIHelper.PrivateKeyToPublicKey("2b59c50d6c3b14de33f3a091e05666e790dc2c0da9b49f25baecdaa1dd16311b");
         }
     }
 }
