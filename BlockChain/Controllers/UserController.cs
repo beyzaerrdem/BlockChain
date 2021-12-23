@@ -60,15 +60,15 @@ namespace BlockChain.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string privateKey)
+        public ActionResult Login(string PrivateKey)
         {
-            var publicKey = "x";
+            var publicKey = NodeJsAPIHelper.PrivateKeyToPublicKey(PrivateKey);
             var user = _userService.GetUser(publicKey);
 
             if (user != null)
             {
-                FormsAuthentication.SetAuthCookie(privateKey, false);
-                Session["privateKey"] = privateKey;
+                FormsAuthentication.SetAuthCookie(PrivateKey, false);
+                Session["privateKey"] = PrivateKey;
                 return Redirect(Request.Form["ReturnUrl"]);
             }
             else

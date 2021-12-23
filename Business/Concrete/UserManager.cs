@@ -19,6 +19,11 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        public void Add(User user)
+        {
+            _userDal.Add(user);
+        }
+
         public User GetUser(string publicKey)
         {
             return _userDal.Get(x => x.PublicKey == publicKey);

@@ -10,5 +10,6 @@ namespace Business.Abstract
     public interface IUserService
     {
         User GetUser(string publicKey);
+        void Add(User user);
     }
 }
