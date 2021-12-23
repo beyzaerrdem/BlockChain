@@ -24,22 +24,23 @@ namespace Business.Utilities.Helpers
 
             return await result;
         }
-        public static T PostMethod<T>(object obj,string uri, Dictionary<string, string> headers = null)
+        public static T PostMethod<T>(object obj,string uri, Dictionary<string, string> headers = null) where T : class
         {
-            return (T)PostMethod(obj,uri, typeof(T), headers).Result;
+            var result = PostMethod(obj, uri, typeof(T), headers);
+            return result as T;
         }
         public static void PostMethod(object obj, string uri, Dictionary<string, string> headers = null)
         {
             PostMethod(obj, uri, typeof(string), headers);
         }
-        public static async Task<object> PostMethod(object obj, string uri, Type type, Dictionary<string, string> headers = null)
+        public static object PostMethod(object obj, string uri, Type type, Dictionary<string, string> headers = null)
         {
             var client = new RestClient(uri);
             var request = new RestRequest(Method.POST) { RequestFormat = DataFormat.Json };
 
-            var result = GetResult(type, client, request, obj, headers);
+            var result = GetResult(type, client, request, obj, headers).Result;
 
-            return await result;
+            return result;
         }
         private static async Task<object> GetResult(Type type, RestClient client, RestRequest request, object obj = null, Dictionary<string, string> headers = null)
         {
@@ -53,8 +54,8 @@ namespace Business.Utilities.Helpers
 
             if (obj != null) //post,put,delete gibi işlemler için servise gönderilecek nesne varsa requeste ekle
             {
-                //request.AddJsonBody(obj);
-                request.AddObject(obj);
+                request.AddJsonBody(obj);
+                //request.AddObject(obj);
             }
             //client üzerinden requesti servise yolla ve
             var response = client.Execute(request);

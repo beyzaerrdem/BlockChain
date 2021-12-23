@@ -46,8 +46,8 @@ namespace BlockChain.Controllers
                 if (!isUserExist)
                 {
                     var randomWords = _randomWordService.GetRandomWords(5);
-                    var keys = NodeJsAPIHelper.GetPublicKey(randomWords);
-                    var user = new User { UserName = registerModel.UserName, PublicKey = keys, ProfilPhoto = "avatar.jpg" };
+                    var publicKey = NodeJsAPIHelper.CreateKey(randomWords).PublicKey;
+                    var user = new User { UserName = registerModel.UserName, PublicKey = publicKey, ProfilPhoto = "avatar.jpg" };
                     _userService.Add(user);
                     _registeredUserService.Add(new RegisteredUser {HashValue = hashedNumber });
 
