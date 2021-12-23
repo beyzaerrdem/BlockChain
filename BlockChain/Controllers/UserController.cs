@@ -35,22 +35,24 @@ namespace BlockChain.Controllers
                     BirthYear = registerModel.BirthYear,
                     FirstName = registerModel.FirstName,
                     LastName = registerModel.LastName,
-                    NationalatyId = registerModel.NationalatyId
+                    NationalatyId = registerModel.NationalityId
                 });
 
             if (result)
             {
-                _randomWordService.GetAll();
-                NodeJsAPIHelper.Hash();
+                var hashedNumber = NodeJsAPIHelper.Hash(registerModel.NationalityId);
+                var isUserExist = _registeredUserService.IsUserExist(hashedNumber);
+
+                if (!isUserExist)
+                {
+                    var randomWords = _randomWordService.GetRandomWords(5);
+                    var publicKey = NodeJsAPIHelper.GetPublicKey(randomWords);
+                    var user = new User { UserName = registerModel.UserName, PublicKey = publicKey, ProfilPhoto = "avatar.jpg" };
+                    _userService.Add(user);
+                    _registeredUserService.Add(new RegisteredUser {HashValue = hashedNumber });
+                }
             }
 
-            if (result)
-            {
-                var user = new User { UserName = registerModel.UserName, PublicKey = "1"};
-
-            }
-
-         
             return View(registerModel);
         }
 

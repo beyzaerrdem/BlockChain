@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -27,6 +28,11 @@ namespace Business.Utilities.Helpers
                     .ToArray();
             }
             return StringToByteArray(result);
+        }
+
+        public static string GetPublicKey(List<RandomWord> randomWords)
+        {
+            throw new NotImplementedException();
         }
         //public static string CreateKey()
         //{

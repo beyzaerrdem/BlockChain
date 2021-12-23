@@ -23,6 +23,11 @@ namespace Business.Concrete
             _registeredUserDal.Add(registeredUser);
         }
 
+        public bool IsUserExist(byte[] hash)
+        {
+            return _registeredUserDal.Get(x => x.HashValue == hash) != null;
+        }
+
         public void Delete(RegisteredUser registeredUser)
         {
             _registeredUserDal.Delete(registeredUser);
