@@ -15,8 +15,6 @@ namespace Entities.Concrete
 
         public int BlockId { get; set; }
 
-        public string PrivateKey { get; set; }
-
         public string Post { get; set; }
 
         public string Signature { get; set; }
