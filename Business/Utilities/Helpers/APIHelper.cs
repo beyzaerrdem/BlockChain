@@ -51,7 +51,7 @@ namespace Business.Utilities.Helpers
 
             if (obj != null) //post,put,delete gibi işlemler için servise gönderilecek nesne varsa requeste ekle
             {
-                request.AddJsonBody(obj);
+                request.AddJsonBody(new{data=obj});
                 //request.AddObject(obj);
             }
             //client üzerinden requesti servise yolla ve

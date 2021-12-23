@@ -40,5 +40,10 @@ namespace Business.Utilities.Helpers
         {
             return APIHelper.PostMethod<KeyDto>(randomWords, "http://localhost:8081/api/key/createkey");
         }
+
+        public static string PrivateKeyToPublicKey(string privateKey)
+        {
+            return APIHelper.PostMethod<string>(privateKey, "http://localhost:8081/api/key/PrivateKeyToPublicKey");
+        }
     }
 }
