@@ -1,18 +1,18 @@
 import Transaction from "../models/transaction.js";
 import { newBlock } from "./block.service.js";
-import EC from "elliptic";
-const ec = new EC.ec("secp256k1");
+import {
+  getPrivateKey,
+  getPublicKey,
+  getPublicKeyHash,
+} from "./key.service.js";
 var pendingTransactions = [];
 /**
  * @param {string} privateKey
  * @param {string} post
  */
 function newTransaction(privateKey, post) {
-  let transaction = new Transaction(
-    ec.keyFromPrivate(privateKey).getPublic("hex"),
-    post
-  );
-  transaction.signTransaction(ec.keyFromPrivate(privateKey));
+  let transaction = new Transaction(getPublicKeyHash(privateKey), post);
+  signTransaction(transaction, privateKey);
   pendingTransactions.push(transaction);
   if (pendingTransactions.length === 3) {
     newBlock(pendingTransactions);
@@ -21,4 +21,38 @@ function newTransaction(privateKey, post) {
   return transaction;
 }
 
-export { newTransaction };
+/**
+ *
+ * @param {Transaction} transaction
+ * @param {string} privateKey
+ */
+function signTransaction(transaction, privateKey) {
+  if (getPublicKeyHash(privateKey) !== transaction.postOwnerId) {
+    throw new Error("Başkası adına post paylaşamazsınız");
+  }
+
+  const hashTx = transaction.calculateHash();
+  const sig = getPrivateKey(privateKey).sign(hashTx, "base64");
+
+  transaction.signature = sig.toDER("hex");
+}
+
+/**
+ *
+ * @param {Transaction} transaction
+ * @returns {boolean}
+ */
+function isTransactionValid(transaction) {
+  if (transaction.postOwnerId === null) return true;
+
+  if (!transaction.signature || transaction.signature.length === 0) {
+    throw new Error("No signature in this transaction");
+  }
+
+  const publicKey = getPublicKey(transaction.postOwnerId);
+
+  console.log(transaction);
+  return publicKey.verify(transaction.calculateHash(), transaction.signature);
+}
+
+export { newTransaction, isTransactionValid, signTransaction };
