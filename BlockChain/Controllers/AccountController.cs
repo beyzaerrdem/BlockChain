@@ -14,7 +14,7 @@ using System.Web.Security;
 
 namespace BlockChain.Controllers
 {
-    public class UserController : Controller
+    public class AccountController : Controller
     {
         IUserCheckService _userCheckService = new UserCheckManager();
         IUserService _userService = new UserManager(new EfUserDal());
@@ -60,7 +60,7 @@ namespace BlockChain.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string PrivateKey)
+        public ActionResult Login(string PrivateKey, string ReturnUrl)
         {
             var publicKey = NodeJsAPIHelper.PrivateKeyToPublicKey(PrivateKey);
             var user = _userService.GetUser(publicKey);
@@ -69,14 +69,16 @@ namespace BlockChain.Controllers
             {
                 FormsAuthentication.SetAuthCookie(PrivateKey, false);
                 Session["privateKey"] = PrivateKey;
-                return Redirect(Request.Form["ReturnUrl"]);
-            }
-            else
-            {
-                return Redirect(Request.UrlReferrer.AbsoluteUri);
+                return Redirect(ReturnUrl);
             }
 
+            return View();
         }
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/account");
+        }
     }
 }
