@@ -46,6 +46,8 @@
     <Compile Include="Abstract\IBlockService.cs" />
     <Compile Include="Abstract\ILikeService.cs" />
     <Compile Include="Abstract\INotificationService.cs" />
+    <Compile Include="Abstract\IRandomWordService.cs" />
+    <Compile Include="Abstract\IRegisteredUserService.cs" />
     <Compile Include="Abstract\ITransactionService.cs" />
     <Compile Include="Abstract\IUserCheckService.cs" />
     <Compile Include="Abstract\IUserService.cs" />
@@ -53,6 +55,8 @@
     <Compile Include="Concrete\BlockManager.cs" />
     <Compile Include="Concrete\LikeManager.cs" />
     <Compile Include="Concrete\NotificationManager.cs" />
+    <Compile Include="Concrete\RandomWordManager.cs" />
+    <Compile Include="Concrete\RegisteredUserManager.cs" />
     <Compile Include="Concrete\TransactionManager.cs" />
     <Compile Include="Concrete\UserCheckManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />

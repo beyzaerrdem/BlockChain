@@ -54,6 +54,8 @@
     <Compile Include="Abstract\IBlockDal.cs" />
     <Compile Include="Abstract\ILikeDal.cs" />
     <Compile Include="Abstract\INotificationDal.cs" />
+    <Compile Include="Abstract\IRandomWordDal.cs" />
+    <Compile Include="Abstract\IRegisteredUserDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\ITransactionDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
@@ -63,6 +65,8 @@
     <Compile Include="EntityFramework\EfLikeDal.cs" />
     <Compile Include="EntityFramework\EfNotificationDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
+    <Compile Include="EntityFramework\RandomWordDal.cs" />
+    <Compile Include="EntityFramework\RegisteredUserDal.cs" />
     <Compile Include="EntityFramework\TransactionDal.cs" />
     <Compile Include="Migrations\202112221236113_add_block.cs" />
     <Compile Include="Migrations\202112221236113_add_block.designer.cs">
