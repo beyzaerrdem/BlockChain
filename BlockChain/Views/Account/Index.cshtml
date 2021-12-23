@@ -24,7 +24,7 @@
                 <p>Complete confidentiality no judgement</p>
             </div>
             <div id="loginBlock">
-                <form id="signupForm" method="post" action="/user/register"> 
+                <form id="signupForm" method="post" action="/account/register"> 
                     <input name="NationalityId" type="text" placeholder="TC id number" required />
                     <input name="FirstName" type="text" placeholder="Name" required />
                     <input name="LastName" type="text" placeholder="Lastname" required />
@@ -33,7 +33,8 @@
                     <button type="submit" class="loginBtn">Sign up</button>
                     <a href="#login" onclick="getHash()">You already have an account? Login</a>
                 </form>
-                <form id="loginForm" method="post" action="/user/login">
+                <form id="loginForm" method="post" action="/account/login">
+                    <input type="hidden" name="ReturnUrl" value="@Request.QueryString["ReturnUrl"]"/>
                     <input name="PrivateKey" type="text" placeholder="Private key" required />
                     <button type="submit" class="loginBtn">Login</button>
                     <a href="#signup" onclick="getHash()">You don't have an account yet? Signup</a>
