@@ -50,6 +50,8 @@ namespace BlockChain.Controllers
                     var user = new User { UserName = registerModel.UserName, PublicKey = publicKey, ProfilPhoto = "avatar.jpg" };
                     _userService.Add(user);
                     _registeredUserService.Add(new RegisteredUser {HashValue = hashedNumber });
+
+                    ViewBag.PrivateId = keys;
                 }
             }
 
