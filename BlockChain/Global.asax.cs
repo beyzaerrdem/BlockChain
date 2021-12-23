@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -18,6 +20,12 @@ namespace BlockChain
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            var process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            var path=Directory.GetParent(Server.MapPath("~")).Parent.FullName+ "/BlockChainNodejsApi/app.js";
+            process.StartInfo.Arguments = "/k node "+path;
+            process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+            process.Start();
         }
     }
 }
