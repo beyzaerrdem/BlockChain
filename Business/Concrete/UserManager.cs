@@ -19,6 +19,12 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        public bool CheckUserName(string userName)
+        {
+            var result=_userDal.Get(u => u.UserName == userName);
+            return !(result is null);
+        }
+
         public void Add(User user)
         {
             _userDal.Add(user);
