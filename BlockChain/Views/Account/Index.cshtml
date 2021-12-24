@@ -171,8 +171,9 @@
             var privateKey = response.privateKey;
             var recoveryWords = response.recoveryWords;
 
-            var words = recoveryWords.reduce(acc, x => {
+            var words = recoveryWords.reduce((acc, x) => {
                 acc += `<span>${x}</span>`
+                return acc;
             }, '<div class="recoveryKey">');
 
             words += "</div>";
