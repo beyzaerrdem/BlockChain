@@ -29,6 +29,10 @@ namespace BlockChain.Controllers
             if (_userService.CheckUserName(registerModel.UserName))
                 return Json(new { status = false, errorMessage = "This username is already taken!" });
 
+            
+            var hashedNumber = NodeJsAPIHelper.Hash(registerModel.NationalityId);
+            var isUserExist = _registeredUserService.IsUserExist(hashedNumber);
+            if (isUserExist) return Json(new { status = false, errorMessage = "The user is not a Turkish citizen!" });
             var result = _userCheckService.CheckIfRealPerson(
                 new UserValidationDto
                 {
@@ -37,31 +41,15 @@ namespace BlockChain.Controllers
                     LastName = registerModel.LastName,
                     NationalatyId = registerModel.NationalityId
                 });
+            if (!result) return Json(new { status = false, errorMessage = "This user is already exist!" });
+            var randomWords = _randomWordService.GetRandomWords(5);
+            var key = NodeJsAPIHelper.CreateKey(randomWords);
+            var user = new User { UserName = registerModel.UserName, PublicKey = key.PublicKey, ProfilPhoto = "avatar.jpg" };
+            _userService.Add(user);
+            _registeredUserService.Add(new RegisteredUser { HashValue = hashedNumber });
 
-            if (result)
-            {
-                var hashedNumber = NodeJsAPIHelper.Hash(new { tc = registerModel.NationalityId });
-                var isUserExist = _registeredUserService.IsUserExist(hashedNumber);
-
-                if (!isUserExist)
-                {
-                    var randomWords = _randomWordService.GetRandomWords(5);
-                    var key = NodeJsAPIHelper.CreateKey(randomWords);
-                    var user = new User { UserName = registerModel.UserName, PublicKey = key.PublicKey, ProfilPhoto = "avatar.jpg" };
-                    _userService.Add(user);
-                    _registeredUserService.Add(new RegisteredUser { HashValue = hashedNumber });
-
-                    ViewBag.PrivateId = key.PrivateKey;
-                    return Json(new { status = false, data = new { privateKey = key.PrivateKey, recoveryWords = randomWords } });
-                } else
-                {
-                    return Json(new { status = false, errorMessage = "This user is already exist!" });
-                }
-
-            } else
-            {
-                return Json(new { status = false, errorMessage = "The user is not a Turkish citizen!" });
-            }
+            ViewBag.PrivateId = key.PrivateKey;
+            return Json(new { status = true, data = new { privateKey = key.PrivateKey, recoveryWords = randomWords } });
 
         }
 
