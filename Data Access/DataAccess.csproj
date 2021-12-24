@@ -84,6 +84,14 @@
     <Compile Include="Migrations\202112231259582_mig_updated_tc_hash.designer.cs">
       <DependentUpon>202112231259582_mig_updated_tc_hash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112241357051_create_postApi_storedProcedure.cs" />
+    <Compile Include="Migrations\202112241357051_create_postApi_storedProcedure.designer.cs">
+      <DependentUpon>202112241357051_create_postApi_storedProcedure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112241448567_create_getApi_storedProcedure.cs" />
+    <Compile Include="Migrations\202112241448567_create_getApi_storedProcedure.designer.cs">
+      <DependentUpon>202112241448567_create_getApi_storedProcedure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -99,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112231259582_mig_updated_tc_hash.resx">
       <DependentUpon>202112231259582_mig_updated_tc_hash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112241357051_create_postApi_storedProcedure.resx">
+      <DependentUpon>202112241357051_create_postApi_storedProcedure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112241448567_create_getApi_storedProcedure.resx">
+      <DependentUpon>202112241448567_create_getApi_storedProcedure.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
