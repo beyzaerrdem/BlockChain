@@ -52,7 +52,6 @@ function sendBlock(block) {
     console.log(`statusCode: ${res.statusCode}`);
     res.setEncoding("utf8");
     res.on("data", (d) => {
-      console.log(d);
     });
   });
 
