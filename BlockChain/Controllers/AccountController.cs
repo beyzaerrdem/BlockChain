@@ -56,7 +56,7 @@ namespace BlockChain.Controllers
                 }
             }
 
-            return View(registerModel);
+            return View("~/Views/account/index.cshtml", registerModel);
         }
 
         [HttpPost]
@@ -65,14 +65,17 @@ namespace BlockChain.Controllers
             var publicKey = NodeJsAPIHelper.PrivateKeyToPublicKey(PrivateKey);
             var user = _userService.GetUser(publicKey);
 
+            var url = string.IsNullOrEmpty(ReturnUrl) ? "/" : ReturnUrl;
+
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(PrivateKey, false);
                 Session["privateKey"] = PrivateKey;
-                return Redirect(ReturnUrl);
+
+                return Redirect(url);
             }
 
-            return View();
+            return View("~/Views/account/index.cshtml");
         }
 
         public ActionResult Logout()
