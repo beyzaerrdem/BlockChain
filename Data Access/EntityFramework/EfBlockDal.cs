@@ -11,5 +11,10 @@ namespace Data_Access.EntityFramework
 {
     public class EfBlockDal : GenericRepository<Block>, IBlockDal
     {
+        public Block GetLastBlock()
+        {
+            var result = context.Blocks.OrderByDescending(x => x.BlockId).FirstOrDefault();
+            return result;
+        }
     }
 }

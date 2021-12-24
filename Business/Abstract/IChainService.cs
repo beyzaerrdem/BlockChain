@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IBlockService
+    public interface IChainService
     {
-        List<Block> GetAll();
-        Block GetLastBlock();
-        Block GetById(int id);
+        List<Transaction> GetAllTransactions();
+        List<Block> GetAllBlocks();
+        string GetLastBlockHash();
         void Add(Block block);
-        void Update(Block block);
-        void Delete(Block block);
     }
 }
