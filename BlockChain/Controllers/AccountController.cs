@@ -32,7 +32,7 @@ namespace BlockChain.Controllers
             
             var hashedNumber = NodeJsAPIHelper.Hash(registerModel.NationalityId);
             var isUserExist = _registeredUserService.IsUserExist(hashedNumber);
-            if (isUserExist) return Json(new { status = false, errorMessage = "The user is not a Turkish citizen!" });
+            if (isUserExist) return Json(new { status = false, errorMessage = "This user is already exist!" });
             var result = _userCheckService.CheckIfRealPerson(
                 new UserValidationDto
                 {
@@ -41,7 +41,7 @@ namespace BlockChain.Controllers
                     LastName = registerModel.LastName,
                     NationalatyId = registerModel.NationalityId
                 });
-            if (!result) return Json(new { status = false, errorMessage = "This user is already exist!" });
+            if (!result) return Json(new { status = false, errorMessage = "The user is not a Turkish citizen!" }); 
             var randomWords = _randomWordService.GetRandomWords(5);
             var key = NodeJsAPIHelper.CreateKey(randomWords);
             var user = new User { UserName = registerModel.UserName, PublicKey = key.PublicKey, ProfilPhoto = "avatar.jpg" };
