@@ -132,13 +132,12 @@
             <a href="#home"><span class="whiteIcon">&times;</span></a>
             <div class="popupContent">
                 <div class="tweetBox">
-                    <form>
+                    <form method="post" action="/Home/AddPost">
                         <div class="tweetbox__input" style="padding:0; margin-top:20px;">
                             <img src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="" />
-                            <textarea id="sendTweet" placeholder="What's happening?" name="tweetMessage"></textarea>
+                            <textarea name="Post" id="sendTweet" placeholder="What's happening?"></textarea>
                         </div>
-                        <button class="tweetBox__tweetButton" style="margin-top:20px;">Post</button>
-
+                        <button type="submit" class="tweetBox__tweetButton" style="margin-top:20px;">Post</button>
                     </form>
                 </div>
             </div>

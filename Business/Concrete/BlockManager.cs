@@ -38,6 +38,11 @@ namespace Business.Concrete
             return _blockDal.Get(b => b.BlockId == id);
         }
 
+        public Block GetLastBlock()
+        {
+            return _blockDal.GetLastBlock();
+        }
+
         public void Update(Block block)
         {
             _blockDal.Update(block);

@@ -4,32 +4,31 @@ using System.IO;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Results;
+using Business.Abstract;
+using Business.Concrete;
+using Data_Access.EntityFramework;
 using Entities.Concrete;
 
 namespace BlockChain.APIControllers
 {
     public class BlockController : ApiController
     {
-        private static List<Block> blocks = new List<Block>(){new Block(){Hash = "00000000000000000000",BlockId = 0}};
-        private static List<Transaction> transactions = new List<Transaction>(){new Transaction(){TransactionId = 0}};
+        private IChainService _chainService = new ChainManager
+            (
+                new BlockManager(new EfBlockDal()),
+                new TransactionManager(new EfTransactionDal())
+            );
+
         [HttpPost]
-        public JsonResult<string> NewBlock(Block block)
+        public void NewBlock(Block block)
         {
-            block.BlockId = blocks[blocks.Count - 1].BlockId + 1;
-            foreach (var transaction in block.Transactions)
-            {
-                transaction.BlockId = block.BlockId;
-                transaction.TransactionId = transactions[transactions.Count - 1].TransactionId + 1;
-                transactions.Add(transaction);
-            }
-            blocks.Add(block);
-            return Json("tmm");
+            _chainService.Add(block);
         }
 
         [HttpGet]
         public JsonResult<string> GetLastBlockHash()
         {
-            var result = blocks[blocks.Count - 1].Hash;
+            var result = _chainService.GetLastBlockHash();
             return Json(result);
         }
     }

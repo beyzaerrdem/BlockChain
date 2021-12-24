@@ -18,5 +18,13 @@ namespace BlockChain.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult AddPost(string Post)
+        {
+            var privateKey = Session["privateKey"].ToString();
+            NodeJsAPIHelper.CreatePost(privateKey, Post);
+            return Redirect("/");
+        }
     }
 }
