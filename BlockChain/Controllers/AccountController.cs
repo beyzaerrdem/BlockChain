@@ -30,6 +30,8 @@ namespace BlockChain.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel registerModel)
         {
+            var errorMessage = "The user is not a Turkish citizen!";
+
             var result = _userCheckService.CheckIfRealPerson(
                 new UserValidationDto
                 {
@@ -41,7 +43,7 @@ namespace BlockChain.Controllers
 
             if (result)
             {
-                var hashedNumber = NodeJsAPIHelper.Hash(new {tc = registerModel.NationalityId });
+                var hashedNumber = NodeJsAPIHelper.Hash(new { tc = registerModel.NationalityId });
                 var isUserExist = _registeredUserService.IsUserExist(hashedNumber);
 
                 if (!isUserExist)
@@ -50,13 +52,19 @@ namespace BlockChain.Controllers
                     var key = NodeJsAPIHelper.CreateKey(randomWords);
                     var user = new User { UserName = registerModel.UserName, PublicKey = key.PublicKey, ProfilPhoto = "avatar.jpg" };
                     _userService.Add(user);
-                    _registeredUserService.Add(new RegisteredUser {HashValue = hashedNumber });
+                    _registeredUserService.Add(new RegisteredUser { HashValue = hashedNumber });
 
-                    ViewBag.PrivateId = key.PrivateKey;
+                    return Json(new
+                    {
+                        status = true,
+                        data = new { privateKey = key.PrivateKey, recoveryWords = randomWords }
+                    });
                 }
-            }
 
-            return View("~/Views/account/index.cshtml", registerModel);
+                errorMessage = "User already exists!";
+            } 
+
+            return Json(new { status = false, errorMessage = errorMessage });
         }
 
         [HttpPost]
