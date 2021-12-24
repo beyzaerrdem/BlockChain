@@ -93,21 +93,21 @@
             cursor: pointer;
         }
 
-        .recoveryKey{
-            margin-bottom:30px;
+        .recoveryKey {
+            margin-bottom: 30px;
         }
 
-        .recoveryKey span {
-            margin-left: 10px;
-            padding: 5px;
-            border-radius: 5px;
-            background-color: #8e44ad;
-            color: #fff;
-        }
+            .recoveryKey span {
+                margin-left: 10px;
+                padding: 5px;
+                border-radius: 5px;
+                background-color: #8e44ad;
+                color: #fff;
+            }
 
-        #labelRecovery{
-            margin-top:30px;
-            margin-bottom:15px;
+        #labelRecovery {
+            margin-top: 30px;
+            margin-bottom: 15px;
         }
     </style>
     <script>
@@ -167,63 +167,6 @@
             });
         });
 
-        const swalRegistered = (response) => {
-            var privateKey = response.privateKey;
-            var recoveryWords = response.recoveryWords;
-
-            var words = recoveryWords.reduce((acc, x) => {
-                acc += `<span>${x}</span>`
-                return acc;
-            }, '<div class="recoveryKey">');
-
-            words += "</div>";
-
-            Swal.fire({
-                title: 'You have successfully registered!',
-                html: `    
-<div style="text-align:left;margin-top:40px"><small><b>Private Key<b/></small></div>
-<div class="showKey">
-          <input
-            id="privateKey"
-            readonly
-            placeholder="Search..."
-            value="${privateKey}"
-          />
-          <i id="copy" class="fa fa-clipboard" aria-hidden="true" data-copytarget="#privateKey"></i>
-        </div>
-<div id="labelRecovery">Recovery Words</div>
-    ${words}
-`,
-                confirmButtonText: "Go Home",
-                allowOutsideClick: false,
-                width: 800,
-                padding: '3em',
-                color: '#716add',
-                background: '#fff url(/images/trees.png)',
-                backdrop: `
-                            rgba(0,0,123,0.4)
-                            url("/images/nyan-cat.gif")
-                            left top
-                            no-repeat
-                          `
-            })
-        }
-
-        const swalError = (message) => {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: message,
-            })
-        }
-    </script>
-
-    <script>
-
-        $("#copy").on("click", function (event) {
-            copyToClipboard(event);
-        });
-
         // event handler
         function copyToClipboard(e) {
             // alert('this function was triggered');
@@ -246,6 +189,63 @@
             }
         }
 
+        const swalRegistered = (response) => {
+            var privateKey = response.privateKey;
+            var recoveryWords = response.recoveryWords;
+
+            var words = recoveryWords.reduce((acc, x) => {
+                acc += `<span>${x.Word}</span>`
+                return acc;
+            }, '<div class="recoveryKey">');
+
+            words += "</div>";
+
+            Swal.fire({
+                title: 'You have successfully registered!',
+                html: `
+<div style="text-align:left;margin-top:40px"><small><b>Private Key<b/></small></div>
+<div class="showKey">
+              <input
+                id="privateKey"
+                readonly
+                placeholder="Search..."
+                value="${privateKey}"
+              />
+              <i id="copy" class="fa fa-clipboard" aria-hidden="true" data-copytarget="#privateKey"></i>
+            </div>
+<div id="labelRecovery">Recovery Words</div>
+        ${words}
+`,
+                confirmButtonText: "Go Home",
+                allowOutsideClick: false,
+                width: 800,
+                padding: '3em',
+                color: '#716add',
+                background: '#fff url(/images/trees.png)',
+                backdrop: `
+                                rgba(0,0,123,0.4)
+                                url("/images/nyan-cat.gif")
+                                left top
+                                no-repeat
+                              `
+            }).then(function () {
+                window.location = "/";
+            });
+
+            $("#copy").on("click", function (event) {
+                console.log("Denmeee");
+                copyToClipboard(event);
+            });
+        }
+
+        const swalError = (message) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: message,
+            })
+        }
     </script>
+
 </body>
 </html>

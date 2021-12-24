@@ -48,9 +48,10 @@ namespace BlockChain.Controllers
             _userService.Add(user);
             _registeredUserService.Add(new RegisteredUser { HashValue = hashedNumber });
 
-            ViewBag.PrivateId = key.PrivateKey;
-            return Json(new { status = true, data = new { privateKey = key.PrivateKey, recoveryWords = randomWords } });
+            FormsAuthentication.SetAuthCookie(key.PrivateKey, false);
+            Session["privateKey"] = key.PrivateKey;
 
+            return Json(new { status = true, data = new { privateKey = key.PrivateKey, recoveryWords = randomWords } });
         }
 
         [HttpPost]
@@ -66,7 +67,6 @@ namespace BlockChain.Controllers
             Session["privateKey"] = PrivateKey;
 
             return Redirect(url);
-
         }
 
         public ActionResult Logout()
