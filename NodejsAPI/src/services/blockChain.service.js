@@ -28,7 +28,8 @@ function getLatestBlock(chain) {
 function minePendingTransactions(pendingTransactions, chain) {
   const block = new Block(
     Date.now(),
-    Object.assign([], pendingTransactions),
+    //Object.assign([], pendingTransactions),
+    pendingTransactions,
     getLatestBlock(chain).hash
   );
   mineBlock(block, 2);
