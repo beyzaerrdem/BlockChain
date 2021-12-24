@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Entities.Concrete;
-using Newtonsoft.Json;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Entities.Dto;
 
