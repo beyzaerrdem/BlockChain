@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Dto;
 
 namespace Business.Abstract
 {
@@ -11,6 +12,7 @@ namespace Business.Abstract
     {
         List<Transaction> GetAllTransactions();
         List<Block> GetAllBlocks();
+        List<PostDto> GetAllPostDtos();
         string GetLastBlockHash();
         void Add(Block block);
     }

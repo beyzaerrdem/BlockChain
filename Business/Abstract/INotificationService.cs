@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Dto;
 
 namespace Business.Abstract
 {
@@ -14,5 +15,6 @@ namespace Business.Abstract
         void Add(Notification notification);
         void Update(Notification notification);
         void Delete(Notification notification);
+        List<NotificationDto> GetAllNotificationDtos();
     }
 }

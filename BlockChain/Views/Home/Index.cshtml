@@ -1,7 +1,8 @@
-﻿@{
+﻿@using Entities.Dto
+@model List<Entities.Dto.PostDto>
+@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,7 +85,7 @@
                         <div class="post__header">
                             <div class="post__headerText">
                                 <h3>
-                                    @item.PostOwner.UserName
+                                    @item.UserName
                                 </h3>
                             </div>
                             <div class="post__headerDescription">
@@ -108,7 +109,28 @@
             </div>
 
             <!-- post starts -->
-            <div class="post">
+            @*@foreach (NotificationDto notification in ViewBag.notifications)
+            {
+                <div class="post">
+                    <div class="post__avatar">
+                        <img src=@notification.ProfilPhoto alt="" />
+                    </div>
+
+                    <div class="post__body">
+                        <div class="post__header">
+                            <div class="post__headerText">
+                                <h3>
+                                    @notification.UserName
+                                </h3>
+                            </div>
+                            <div class="post__headerDescription">
+                                <p>@notification.Message</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }*@
+            @*<div class="post">
                 <div class="post__avatar">
                     <img src="./images/icons8-bell-64.png" alt="" />
                 </div>
@@ -125,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <!-- post ends -->
         </section>
         <!-- notification ends -->

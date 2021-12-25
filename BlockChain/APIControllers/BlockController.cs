@@ -16,7 +16,7 @@ namespace BlockChain.APIControllers
         private IChainService _chainService = new ChainManager
             (
                 new BlockManager(new EfBlockDal()),
-                new TransactionManager(new EfTransactionDal())
+                new TransactionManager(new EfTransactionDal()),new EfChainDal()
             );
 
         [HttpPost]

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IBlockDal.cs" />
+    <Compile Include="Abstract\IChainDal.cs" />
     <Compile Include="Abstract\ILikeDal.cs" />
     <Compile Include="Abstract\INotificationDal.cs" />
     <Compile Include="Abstract\IRandomWordDal.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfBlockDal.cs" />
+    <Compile Include="EntityFramework\EfChainDal.cs" />
     <Compile Include="EntityFramework\EfLikeDal.cs" />
     <Compile Include="EntityFramework\EfNotificationDal.cs" />
     <Compile Include="EntityFramework\EfUserDal.cs" />
@@ -92,6 +94,14 @@
     <Compile Include="Migrations\202112241448567_create_getApi_storedProcedure.designer.cs">
       <DependentUpon>202112241448567_create_getApi_storedProcedure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112251056356_create_postView.cs" />
+    <Compile Include="Migrations\202112251056356_create_postView.designer.cs">
+      <DependentUpon>202112251056356_create_postView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112251609263_create_NotificationView.cs" />
+    <Compile Include="Migrations\202112251609263_create_NotificationView.designer.cs">
+      <DependentUpon>202112251609263_create_NotificationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -113,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112241448567_create_getApi_storedProcedure.resx">
       <DependentUpon>202112241448567_create_getApi_storedProcedure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112251056356_create_postView.resx">
+      <DependentUpon>202112251056356_create_postView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112251609263_create_NotificationView.resx">
+      <DependentUpon>202112251609263_create_NotificationView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

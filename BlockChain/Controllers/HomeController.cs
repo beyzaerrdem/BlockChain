@@ -19,11 +19,16 @@ namespace BlockChain.Controllers
     public class HomeController : Controller
     {
         private IChainService _chainService = new ChainManager
-            (new BlockManager(new EfBlockDal()), new TransactionManager(new EfTransactionDal()));
+            (new BlockManager(new EfBlockDal()), new TransactionManager(new EfTransactionDal()),new EfChainDal());
+
+        private INotificationService _notificationService = new NotificationManager(new EfNotificationDal());
 
         public ActionResult Index()
         {
-            var posts = _chainService.GetAllTransactions();
+            
+            var posts = _chainService.GetAllPostDtos();
+            var notifications = _notificationService.GetAllNotificationDtos();
+            ViewBag.notifications = notifications;
             return View(posts);
         }
 

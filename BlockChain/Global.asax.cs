@@ -10,6 +10,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Business.Adapters;
 using Business.Utilities.Helpers;
+using Data_Access.Concrete;
 using Entities.Concrete;
 using Entities.Dto;
 
@@ -17,6 +18,7 @@ namespace BlockChain
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        private Process process;
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -26,7 +28,7 @@ namespace BlockChain
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
-            var process = new Process();
+            process = new Process();
             process.StartInfo.FileName = "node.exe";
             var directoryInfo = Directory.GetParent(Server.MapPath("~"))?.Parent;
             if (directoryInfo != null)
@@ -37,6 +39,10 @@ namespace BlockChain
 
             process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
             process.Start();
+            
         }
+
+
+      
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Dto;
 
 namespace Business.Concrete
 {
@@ -26,6 +27,11 @@ namespace Business.Concrete
         public void Delete(Notification notification)
         {
             _notificationDal.Delete(notification);
+        }
+
+        public List<NotificationDto> GetAllNotificationDtos()
+        {
+            return _notificationDal.GetAllNotificationDtos();
         }
 
         public List<Notification> GetAll()
