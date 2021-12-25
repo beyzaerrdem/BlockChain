@@ -18,7 +18,7 @@ namespace Data_Access.Concrete
                 {
                     cmd.Connection = connection;
                     var result = new List<T>();
-                    if (!connectionOpen(cmd.Connection)) return result;
+                    if (!ConnectionOpen(cmd.Connection)) return result;
                     using (var dr = cmd.ExecuteReader())
                     {
                         
@@ -48,7 +48,7 @@ namespace Data_Access.Concrete
         }
 
 
-        private bool connectionOpen(IDbConnection connection)
+        private bool ConnectionOpen(IDbConnection connection)
         {
             try
             {
