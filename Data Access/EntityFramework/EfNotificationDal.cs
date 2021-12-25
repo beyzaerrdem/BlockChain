@@ -15,11 +15,7 @@ namespace Data_Access.EntityFramework
     {
         public List<NotificationDto> GetAllNotificationDtos()
         {
-            using (var db = new Context())
-            {
-                //return db.NotificationView.ToList();
-                return null;
-            }
+            return new AdoNet().GetResult<NotificationDto>("select * from NotificationView");
         }
     }
 }

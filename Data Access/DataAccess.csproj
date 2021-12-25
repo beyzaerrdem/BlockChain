@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,7 +61,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\ITransactionDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
-    <Compile Include="Concrete\AdoNetConnection.cs" />
+    <Compile Include="Concrete\AdoNet.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfBlockDal.cs" />

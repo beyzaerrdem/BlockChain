@@ -12,46 +12,8 @@ namespace Data_Access.EntityFramework
 
         public List<PostDto> GetAllPostDtos()
         {
-            using (SqlConnection connection = AdoNetConnection.getDbInstance().GetDBConnection())
-            {
-                string query = "SELECT * from PostView";
-                var command = new SqlCommand(query, connection);
-                var postDtos = new List<PostDto>();
-
-                try
-                {
-                    command.Connection.Open();
-
-                    using (SqlDataReader dr = command.ExecuteReader())
-
-                    {
-                        while (dr.Read())
-                        {
-                            PostDto postDto = new PostDto 
-                            {
-                                Post = (string)dr["post"],
-                                ProfilPhoto = (string)dr["ProfilPhoto"],
-                                Timestamp = (long)dr["Timestamp"],
-                                UserName = (string)dr["UserName"]
-                            };
-                            postDtos.Add(postDto);
-                        }
-
-                    }
-
-                    return postDtos;
-
-                }
-                catch (SqlException ex)
-                {
-                    return null;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-
-            }
+           
+            return new AdoNet().GetResult<PostDto>("select * from PostView");
         }
     }
 }
