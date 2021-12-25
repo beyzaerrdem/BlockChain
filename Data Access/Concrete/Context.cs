@@ -18,12 +18,6 @@ namespace Data_Access.Concrete
 
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Ignore<PostDto>();
-            modelBuilder.Ignore<NotificationDto>();
-        }
-
         public DbSet<User> Users { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<Notification> Notifications { get; set; }
@@ -31,23 +25,6 @@ namespace Data_Access.Concrete
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<RegisteredUser> RegisteredUsers { get; set; }
         public DbSet<RandomWord> RandomWords { get; set; }
-        public DbSet<PostDto> PostView { get; set; }
 
-    }
-    public class PostViewConfiguration : EntityTypeConfiguration<PostDto>
-    {
-        public PostViewConfiguration()
-        {
-            this.HasKey(t => t.UserName);
-            this.ToTable("PostView");
-        }
-    }
-    public class NotificationViewConfiguration : EntityTypeConfiguration<NotificationDto>
-    {
-        public NotificationViewConfiguration()
-        {
-            this.HasKey(t => t.UserName);
-            this.ToTable("NotificationView");
-        }
     }
 }

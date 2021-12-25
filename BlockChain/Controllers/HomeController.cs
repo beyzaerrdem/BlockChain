@@ -24,8 +24,7 @@ namespace BlockChain.Controllers
         private INotificationService _notificationService = new NotificationManager(new EfNotificationDal());
 
         public ActionResult Index()
-        {
-            
+        {          
             var posts = _chainService.GetAllPostDtos();
             var notifications = _notificationService.GetAllNotificationDtos();
             ViewBag.notifications = notifications;

@@ -60,6 +60,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\ITransactionDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
+    <Compile Include="Concrete\AdoNetConnection.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfBlockDal.cs" />
@@ -73,6 +74,14 @@
     <Compile Include="Migrations\202112251721570_mig_init.cs" />
     <Compile Include="Migrations\202112251721570_mig_init.designer.cs">
       <DependentUpon>202112251721570_mig_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112251726545_mig_storedProcedures.cs" />
+    <Compile Include="Migrations\202112251726545_mig_storedProcedures.designer.cs">
+      <DependentUpon>202112251726545_mig_storedProcedures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112251733290_mig_views.cs" />
+    <Compile Include="Migrations\202112251733290_mig_views.designer.cs">
+      <DependentUpon>202112251733290_mig_views.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,7 +100,14 @@
     <EmbeddedResource Include="Migrations\202112251721570_mig_init.resx">
       <DependentUpon>202112251721570_mig_init.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112251726545_mig_storedProcedures.resx">
+      <DependentUpon>202112251726545_mig_storedProcedures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112251733290_mig_views.resx">
+      <DependentUpon>202112251733290_mig_views.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

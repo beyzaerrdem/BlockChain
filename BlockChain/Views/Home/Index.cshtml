@@ -72,34 +72,39 @@
                 </form>
             </div>
             <!-- tweetbox ends -->
-            <!-- post starts -->
-            @foreach (var item in Model)
+
+            @if (Model != null)
             {
                 <!-- post starts -->
-                <div class="post">
-                    <div class="post__avatar">
-                        <img src="./images/icons8-bell-64.png" alt="" />
-                    </div>
+                foreach (var item in Model)
+                {
+                    <!-- post starts -->
+                    <div class="post">
+                        <div class="post__avatar">
+                            <img src="./images/icons8-bell-64.png" alt="" />
+                        </div>
 
-                    <div class="post__body">
-                        <div class="post__header">
-                            <div class="post__headerText">
-                                <h3>
-                                    @item.UserName
-                                </h3>
-                            </div>
-                            <div class="post__headerDescription">
-                                <p>@item.Post</p>
-                            </div>
-                            <div class="post__footer">
-                                <span class="material-icons"> favorite_border </span>
+                        <div class="post__body">
+                            <div class="post__header">
+                                <div class="post__headerText">
+                                    <h3>
+                                        @item.UserName
+                                    </h3>
+                                </div>
+                                <div class="post__headerDescription">
+                                    <p>@item.Post</p>
+                                </div>
+                                <div class="post__footer">
+                                    <span class="material-icons"> favorite_border </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <!-- post ends -->
+                }
                 <!-- post ends -->
             }
-            <!-- post ends -->
+
         </section>
         <!-- home ends -->
         <!-- notification starts-->
@@ -109,45 +114,51 @@
             </div>
 
             <!-- post starts -->
-            @*@foreach (NotificationDto notification in ViewBag.notifications)
+
+            @if (Model != null)
             {
-                <div class="post">
-                    <div class="post__avatar">
-                        <img src=@notification.ProfilPhoto alt="" />
-                    </div>
+                foreach (NotificationDto notification in ViewBag.notifications)
+                {
+                    <div class="post">
+                        <div class="post__avatar">
+                            <img src=@notification.ProfilPhoto alt="" />
+                        </div>
 
-                    <div class="post__body">
-                        <div class="post__header">
-                            <div class="post__headerText">
-                                <h3>
-                                    @notification.UserName
-                                </h3>
-                            </div>
-                            <div class="post__headerDescription">
-                                <p>@notification.Message</p>
+                        <div class="post__body">
+                            <div class="post__header">
+                                <div class="post__headerText">
+                                    <h3>
+                                        @notification.UserName
+                                    </h3>
+                                </div>
+                                <div class="post__headerDescription">
+                                    <p>@notification.Message</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            }*@
+                }
+            }
+
+
             @*<div class="post">
-                <div class="post__avatar">
-                    <img src="./images/icons8-bell-64.png" alt="" />
-                </div>
+            <div class="post__avatar">
+                <img src="./images/icons8-bell-64.png" alt="" />
+            </div>
 
-                <div class="post__body">
-                    <div class="post__header">
-                        <div class="post__headerText">
-                            <h3>
-                                Username
-                            </h3>
-                        </div>
-                        <div class="post__headerDescription">
-                            <p>A new post from "username". Let's check it out!</p>
-                        </div>
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <h3>
+                            Username
+                        </h3>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>A new post from "username". Let's check it out!</p>
                     </div>
                 </div>
-            </div>*@
+            </div>
+        </div>*@
             <!-- post ends -->
         </section>
         <!-- notification ends -->
