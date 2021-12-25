@@ -11,6 +11,6 @@ export default class Transaction {
     this.timestamp = Date.now();
   }
   calculateHash() {
-    return createHash(this.postOwner + this.post + this.timestamp);
+    return createHash(this.postOwnerId + this.post + this.timestamp);
   }
 }

@@ -5,12 +5,14 @@ const router = express.Router();
 import post from "./post.route.js";
 import key from "./key.route.js";
 import chain from "./chain.route.js";
-import hash from './hash.route.js'
+import hash from './hash.route.js';
+import transaction from './transaction.route.js';
 
 router.use("/post", post);
 router.use("/key", key);
 router.use('/chain',chain);
-router.use("/hash",hash)
+router.use("/hash",hash);
+router.use("/transaction",transaction)
 
 router.get("/health", (req, res) => {
   const healthcheck = {

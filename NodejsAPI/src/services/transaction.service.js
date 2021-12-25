@@ -1,5 +1,6 @@
 import Transaction from "../models/transaction.js";
 import { newBlock } from "./block.service.js";
+import { createHash } from "./hash.service.js";
 import {
   getPrivateKey,
   getPublicKey,
@@ -52,7 +53,9 @@ function isTransactionValid(transaction) {
   const publicKey = getPublicKey(transaction.postOwnerId);
 
   console.log(transaction);
-  return publicKey.verify(transaction.calculateHash(), transaction.signature);
+  return publicKey.verify(calculateHash(transaction), transaction.signature);
 }
-
+function calculateHash(transaction) {
+  return createHash(transaction.postOwnerId + transaction.post + transaction.timestamp);
+}
 export { newTransaction, isTransactionValid, signTransaction };
