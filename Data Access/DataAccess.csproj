@@ -70,66 +70,12 @@
     <Compile Include="EntityFramework\EfRandomWordDal.cs" />
     <Compile Include="EntityFramework\EfRegisteredUserDal.cs" />
     <Compile Include="EntityFramework\EfTransactionDal.cs" />
-    <Compile Include="Migrations\202112221236113_add_block.cs" />
-    <Compile Include="Migrations\202112221236113_add_block.designer.cs">
-      <DependentUpon>202112221236113_add_block.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112221244490_add_transaction.cs" />
-    <Compile Include="Migrations\202112221244490_add_transaction.designer.cs">
-      <DependentUpon>202112221244490_add_transaction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112231256293_mig_updated_posts.cs" />
-    <Compile Include="Migrations\202112231256293_mig_updated_posts.designer.cs">
-      <DependentUpon>202112231256293_mig_updated_posts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112231259582_mig_updated_tc_hash.cs" />
-    <Compile Include="Migrations\202112231259582_mig_updated_tc_hash.designer.cs">
-      <DependentUpon>202112231259582_mig_updated_tc_hash.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112241357051_create_postApi_storedProcedure.cs" />
-    <Compile Include="Migrations\202112241357051_create_postApi_storedProcedure.designer.cs">
-      <DependentUpon>202112241357051_create_postApi_storedProcedure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112241448567_create_getApi_storedProcedure.cs" />
-    <Compile Include="Migrations\202112241448567_create_getApi_storedProcedure.designer.cs">
-      <DependentUpon>202112241448567_create_getApi_storedProcedure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112251056356_create_postView.cs" />
-    <Compile Include="Migrations\202112251056356_create_postView.designer.cs">
-      <DependentUpon>202112251056356_create_postView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202112251609263_create_NotificationView.cs" />
-    <Compile Include="Migrations\202112251609263_create_NotificationView.designer.cs">
-      <DependentUpon>202112251609263_create_NotificationView.cs</DependentUpon>
+    <Compile Include="Migrations\202112251721570_mig_init.cs" />
+    <Compile Include="Migrations\202112251721570_mig_init.designer.cs">
+      <DependentUpon>202112251721570_mig_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202112221236113_add_block.resx">
-      <DependentUpon>202112221236113_add_block.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112221244490_add_transaction.resx">
-      <DependentUpon>202112221244490_add_transaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112231256293_mig_updated_posts.resx">
-      <DependentUpon>202112231256293_mig_updated_posts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112231259582_mig_updated_tc_hash.resx">
-      <DependentUpon>202112231259582_mig_updated_tc_hash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112241357051_create_postApi_storedProcedure.resx">
-      <DependentUpon>202112241357051_create_postApi_storedProcedure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112241448567_create_getApi_storedProcedure.resx">
-      <DependentUpon>202112241448567_create_getApi_storedProcedure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112251056356_create_postView.resx">
-      <DependentUpon>202112251056356_create_postView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112251609263_create_NotificationView.resx">
-      <DependentUpon>202112251609263_create_NotificationView.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Entities.csproj">
@@ -140,6 +86,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112251721570_mig_init.resx">
+      <DependentUpon>202112251721570_mig_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

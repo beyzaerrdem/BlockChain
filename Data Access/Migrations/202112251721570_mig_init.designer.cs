@@ -7,13 +7,13 @@ namespace Data_Access.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class create_getApi_storedProcedure : IMigrationMetadata
+    public sealed partial class mig_ini : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(create_getApi_storedProcedure));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mig_ini));
         
         string IMigrationMetadata.Id
         {
-            get { return "202112241448567_create_getApi_storedProcedure"; }
+            get { return "202112251721570_mig_ini"; }
         }
         
         string IMigrationMetadata.Source

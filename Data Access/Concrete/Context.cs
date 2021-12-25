@@ -20,8 +20,8 @@ namespace Data_Access.Concrete
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new PostViewConfiguration());
-            modelBuilder.Configurations.Add(new NotificationViewConfiguration());
+            modelBuilder.Ignore<PostDto>();
+            modelBuilder.Ignore<NotificationDto>();
         }
 
         public DbSet<User> Users { get; set; }
@@ -32,7 +32,6 @@ namespace Data_Access.Concrete
         public DbSet<RegisteredUser> RegisteredUsers { get; set; }
         public DbSet<RandomWord> RandomWords { get; set; }
         public DbSet<PostDto> PostView { get; set; }
-       // public DbSet<NotificationDto> NotificationView { get; set; }
 
     }
     public class PostViewConfiguration : EntityTypeConfiguration<PostDto>

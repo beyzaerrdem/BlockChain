@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Dto
 {
+    [Table("PostView")]
     public class PostDto 
     {
         public string Post { get; set; }
