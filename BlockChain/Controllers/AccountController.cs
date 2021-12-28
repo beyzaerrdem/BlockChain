@@ -43,7 +43,7 @@ namespace BlockChain.Controllers
                 });
             if (!result) return Json(new { status = false, errorMessage = "The user is not a Turkish citizen!" }); 
             var randomWords = _randomWordService.GetRandomWords(5);
-            var key = NodeJsAPIHelper.CreateKey(randomWords);
+            var key = NodeJsAPIHelper.CreateKey(new { RandomWords = randomWords, HashedNumber = hashedNumber });
             var user = new User { UserName = registerModel.UserName, PublicKey = key.PublicKey, ProfilPhoto = "avatar.jpg" };
             _userService.Add(user);
             _registeredUserService.Add(new RegisteredUser { HashValue = hashedNumber });
