@@ -10,5 +10,6 @@ namespace Data_Access.Abstract
     public interface IBlockDal : IRepository<Block>
     {
         Block GetLastBlock();
+        List<Block> GetBlocksWTransactions();
     }
 }

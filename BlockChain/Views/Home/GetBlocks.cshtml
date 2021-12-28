@@ -1,0 +1,138 @@
+﻿@model List<Entities.Concrete.Block>
+
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous" />
+
+    <style>
+        .col-md-3 {
+            padding-left: 8px;
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        .round-left {
+            border-radius: 0;
+            border-top-left-radius: 0.25rem !important;
+            border-bottom-left-radius: 0.25rem !important;
+        }
+
+        .round-right {
+            border-radius: 0;
+            border-top-right-radius: 0.25rem !important;
+            border-bottom-right-radius: 0.25rem !important;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .text-krai {
+            color: #7209b7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">
+            <span class="text-krai">Biz</span>
+            Blockchain
+            <button type="button" class="btn btn-dark btn-sm">Check Chain</button>
+        </h1>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 p-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="" method="post">
+                                <div class="row">
+                                    <div class="col-md-3 font-weight-bold">Block:</div>
+                                    <input class="form-control form-control-sm col-md-1 round-left"
+                                           readonly
+                                           value="#"
+                                           type="text" />
+                                    <input class="form-control form-control-sm col-md-8 round-right"
+                                           name="blockId"
+                                           value="@item.BlockId"
+                                           type="text" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 font-weight-bold">Nonce:</div>
+                                    <input class="form-control form-control-sm col-md-9"
+                                           name="nonce"
+                                           value="@item.Nonce"
+                                           type="text" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 font-weight-bold">Data:</div>
+                                    <textarea class="form-control col-md-9"
+                                              name="transaction"
+                                              cols="30"
+                                              rows="5">
+                                   
+                                     @foreach (var tx in item.Transactions)
+                                     {
+                                         @tx.Post
+                                     }
+
+                                    </textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 font-weight-bold">Prev:</div>
+                                    <input class="form-control form-control-sm col-md-9"
+                                           name="prevHash"
+                                           value="@item.PreviousHash"
+                                           type="text" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 font-weight-bold">Hash:</div>
+                                    <input class="form-control form-control-sm col-md-9"
+                                           name="hash"
+                                           value="@item.Hash"
+                                           type="text" />
+                                </div>
+                                <div class="row justify-content-end mb-0">
+                                    <button type="button" class="btn btn-success btn-sm">
+                                        Check Block
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+</html>
+

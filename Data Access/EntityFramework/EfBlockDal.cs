@@ -16,5 +16,10 @@ namespace Data_Access.EntityFramework
             var result = context.Blocks.OrderByDescending(x => x.BlockId).FirstOrDefault();
             return result;
         }
+
+        public List<Block> GetBlocksWTransactions()
+        {
+            return null;
+        }
     }
 }

@@ -38,5 +38,12 @@ namespace BlockChain.Controllers
             NodeJsAPIHelper.CreatePost(privateKey, Post);
             return Redirect("/");
         }
+
+        [AllowAnonymous]
+        public ActionResult GetBlocks()
+        {
+            var model =_chainService.GetAllBlocks();
+            return View(model);
+        }
     }
 }
