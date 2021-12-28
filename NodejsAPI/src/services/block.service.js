@@ -91,4 +91,17 @@ function hasValidTransactions(block) {
   }
   return true;
 }
-export { newBlock, mineBlock, hasValidTransactions };
+/**
+ * 
+ * @param {Block} block 
+ * @returns {boolean}
+ */
+function blockIsValid(block){
+  if (block.hash === null) return false;
+
+  if(!hasValidTransactions(block)) return false;
+  let nonce=block.nonce
+  mineBlock(block,2)
+  return nonce==block.nonce
+}
+export { newBlock, mineBlock, hasValidTransactions,blockIsValid };

@@ -44,15 +44,13 @@ function signTransaction(transaction, privateKey) {
  * @returns {boolean}
  */
 function isTransactionValid(transaction) {
-  if (transaction.postOwnerId === null) return true;
+  if (transaction.postOwnerId === null) return false;
 
   if (!transaction.signature || transaction.signature.length === 0) {
     throw new Error("No signature in this transaction");
   }
 
   const publicKey = getPublicKey(transaction.postOwnerId);
-
-  console.log(transaction);
   return publicKey.verify(calculateHash(transaction), transaction.signature);
 }
 function calculateHash(transaction) {
