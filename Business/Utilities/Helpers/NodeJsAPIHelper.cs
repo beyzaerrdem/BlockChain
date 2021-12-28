@@ -47,9 +47,9 @@ namespace Business.Utilities.Helpers
             return GetStringToBytes(result);
         }
 
-        public static KeyDto CreateKey(List<RandomWord> randomWords)
+        public static KeyDto CreateKey(object obj)
         {
-            return APIHelper.PostMethod<KeyDto>(randomWords, ApiUrlHelper.GetUrl("key/createkey"));
+            return APIHelper.PostMethod<KeyDto>(obj, ApiUrlHelper.GetUrl("key/createkey"));
         }
 
         public static string PrivateKeyToPublicKey(string privateKey)
