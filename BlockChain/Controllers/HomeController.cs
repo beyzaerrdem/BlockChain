@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace BlockChain.Controllers
 
         public ActionResult Index()
         {          
-            var posts = _chainService.GetAllPostDtos();
+            var posts = _chainService.GetAllPostDtos().OrderByDescending(t=>t.Timestamp).ToList();
             var notifications = _notificationService.GetAllNotificationDtos();
             ViewBag.notifications = notifications;
             return View(posts);
