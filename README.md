@@ -1,7 +1,7 @@
 # Blockchain Hackathon Project
 >  Freely share what you want. Complete confidentiality no judgement!
 
-*Team*
+**Team**
 ```
 Muhammed Ali ÖZKAYA
 Salih ÖZKARA
