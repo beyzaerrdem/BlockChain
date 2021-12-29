@@ -84,6 +84,10 @@
     <Compile Include="Migrations\202112251733290_mig_views.designer.cs">
       <DependentUpon>202112251733290_mig_views.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112292128163_create_transactionValid_trigger.cs" />
+    <Compile Include="Migrations\202112292128163_create_transactionValid_trigger.designer.cs">
+      <DependentUpon>202112292128163_create_transactionValid_trigger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112251733290_mig_views.resx">
       <DependentUpon>202112251733290_mig_views.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112292128163_create_transactionValid_trigger.resx">
+      <DependentUpon>202112292128163_create_transactionValid_trigger.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
