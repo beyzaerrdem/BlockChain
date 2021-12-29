@@ -83,17 +83,16 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 font-weight-bold">Data:</div>
-                                    <textarea class="form-control col-md-9"
-                                              name="transaction"
-                                              cols="30"
-                                              rows="5">
-                                   
-                                     @foreach (var tx in item.Transactions)
-                                     {
-                                         @tx.Post
-                                     }
-
-                                    </textarea>
+                                    <div class="col-md-9 p-0">
+                                    @foreach (var tx in item.Transactions)
+                                    {
+                                        
+                                        <input class="form-control form-control-sm mb-0 mb-2"
+                                               name="nonce"
+                                               value="@tx.Post"
+                                               type="text" />
+                                    }
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 font-weight-bold">Prev:</div>

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "Data Access\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodejsAPI", "NodejsAPI\NodejsAPI.csproj", "{EA7F8364-94B7-4A69-90E9-875EE80AE4C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForPython", "ForPython\ForPython.csproj", "{CF62B1E6-2109-4E14-BEAB-AB5840E71D1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EA7F8364-94B7-4A69-90E9-875EE80AE4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7F8364-94B7-4A69-90E9-875EE80AE4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7F8364-94B7-4A69-90E9-875EE80AE4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF62B1E6-2109-4E14-BEAB-AB5840E71D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF62B1E6-2109-4E14-BEAB-AB5840E71D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF62B1E6-2109-4E14-BEAB-AB5840E71D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF62B1E6-2109-4E14-BEAB-AB5840E71D1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public List<Block> GetAll()
         {
-            return _blockDal.GetAll();
+            return _blockDal.GetBlocksWTransactions();
         }
 
         public Block GetById(int id)

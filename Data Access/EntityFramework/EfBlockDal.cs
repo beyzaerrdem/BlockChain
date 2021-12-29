@@ -19,7 +19,7 @@ namespace Data_Access.EntityFramework
 
         public List<Block> GetBlocksWTransactions()
         {
-            return null;
+            return context.Blocks.Include("Transactions").ToList();
         }
     }
 }
